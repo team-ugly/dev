@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101062748) do
+ActiveRecord::Schema.define(version: 20171117045850) do
+
+  create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "area_code_forecasts"
+    t.string "area_name"
+  end
+
+  create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "farms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "farm_name"
+    t.string "farm_address"
+    t.string "varchar"
+  end
+
+  create_table "logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "log_title"
+    t.string "body"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -29,7 +58,6 @@ ActiveRecord::Schema.define(version: 20171101062748) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
     t.integer "area_code"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -51,6 +79,42 @@ ActiveRecord::Schema.define(version: 20171101062748) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_views_on_email", unique: true
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+  end
+
+  create_table "weatherforecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "area_code_forecast", null: false
+    t.string "time_id_1"
+    t.string "time_id_2"
+    t.string "time_id_3"
+    t.string "weather_1"
+    t.string "weather_2"
+    t.string "weather_3"
+    t.string "wind_1"
+    t.string "wind_2"
+    t.string "wind_3"
+    t.string "rain_time_id_1"
+    t.string "rain_time_id_2"
+    t.string "rain_time_id_3"
+    t.string "rain_time_id_4"
+    t.string "rain_time_id_5"
+    t.string "rain_time_id_6"
+    t.string "rain_1"
+    t.string "rain_2"
+    t.string "rain_3"
+    t.string "temperature_time_id_1"
+    t.string "temperature_time_id_2"
+    t.string "temperature_time_id_3"
+    t.string "temperature_time_id_4"
+    t.string "max_temperature_1"
+    t.string "max_temperature_2"
+    t.string "max_temperature_3"
+    t.string "max_temperature_4"
+    t.string "min_temperature_1"
+    t.string "min_temperature_2"
+    t.string "min_temperature_3"
+    t.string "min_temperature_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

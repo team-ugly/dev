@@ -1,0 +1,2 @@
+class AreaCodeForecast < ApplicationRecord
+end
