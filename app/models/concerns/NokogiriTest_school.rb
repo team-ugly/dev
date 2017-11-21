@@ -3,6 +3,8 @@ class NokogiriTestSchool
   require 'nokogiri'
   require 'open-uri'
 
+  require 'weatherforecast.rb'
+
   proxy_uri = 'http://proxy.oita-ct.ac.jp:80'
   prx_opt = {:proxy => proxy_uri}
 
@@ -27,6 +29,21 @@ class NokogiriTestSchool
           if '中部' === item.xpath('Area/Name').text then
             weatherForecastPart = item.xpath('//WeatherForecastPart[@refID="1"]')[0]
             puts forecast_xml.xpath('//TimeDefine[@timeId="1"]')[0].xpath('DateTime').text + ":今日の中部の天気予報:" + weatherForecastPart.xpath('Sentence').text
+
+
+
+            weatherForecast = Weatherforecast.new
+            weatherForecast.area_code_forecast = 0
+            weatherForecast.time_id_1 = forecast_xml.xpath('//TimeDefine[@timeId="1"]')[0].xpath('DateTime').text
+            weatherForecast.time_id_2 = forecast_xml.xpath('//TimeDefine[@timeId="2"]')[0].xpath('DateTime').text
+            weatherForecast.time_id_3 = forecast_xml.xpath('//TimeDefine[@timeId="3"]')[0].xpath('DateTime').text
+
+            weatherForecast.weather_1 = weatherForecastPart.xpath('Sentence').text
+            weatherForecast.weather_2 = item.xpath('//WeatherForecastPart[@refID="2"]')[0].xpath('Sentence').text
+            weatherForecast.weather_3 = item.xpath('//WeatherForecastPart[@refID="3"]')[0].xpath('Sentence').text
+
+            weatherForecast.save
+
             break
           end
         end
@@ -35,5 +52,6 @@ class NokogiriTestSchool
     end
 
   end
+
 
 end
