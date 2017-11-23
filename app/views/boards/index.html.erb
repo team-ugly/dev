@@ -1,0 +1,12 @@
+<h1>Boards#index</h1>
+<p>Find me in app/views/boards/index.html.erb</p>
+<h1>掲示板新規登録</h1>
+<%= form_for @newBoard, :url => {:action => 'create'} do |f| %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+    <% end %>
+<u1>
+  <% @boards.each do |board| %>
+  <li><%= link_to board.title, boards_show_path(board.id) %></li>
+      <% end %>
+</u1>
