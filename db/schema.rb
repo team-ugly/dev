@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20171117061803) do
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
-  create_table "weatherforecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "weather_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "area_code_forecast", null: false
     t.string "time_id_1"
     t.string "time_id_2"
