@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201065043) do
+ActiveRecord::Schema.define(version: 20171117061803) do
 
   create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -49,15 +49,6 @@ ActiveRecord::Schema.define(version: 20171201065043) do
     t.string "log_title"
     t.string "body"
     t.integer "user_id"
-  end
-
-  create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "description"
-    t.float "latitude", limit: 24
-    t.float "longitude", limit: 24
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
