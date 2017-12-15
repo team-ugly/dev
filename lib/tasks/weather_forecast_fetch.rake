@@ -21,9 +21,15 @@ namespace :weather_forecast_fetch do
           puts "コンテンツ:" + entry.xpath('content').text
           forecast_xml_url = entry.xpath('link/@href').text
           forecast_xml = Nokogiri::XML(open(forecast_xml_url, prx_opt).read)
-          forecast_xml.remove_namespaces!
+          #forecast_xml.remove_namespaces!
 
-          time_series_info_nodes = forecast_xml.xpath('//TimeSeriesInfo')
+          #namespaceを設定する
+          namespaces = {
+              "xmlns" => "http://xml.kishou.go.jp/jmaxml1/body/meteorology1/",
+              "jmx_eb" => "http://xml.kishou.go.jp/jmaxml1/elementBasis1/"
+          }
+
+          time_series_info_nodes = forecast_xml.xpath('//xmlns:TimeSeriesInfo',namespaces)
           weatherForecastArr = [WeatherForecast.new, WeatherForecast.new, WeatherForecast.new, WeatherForecast.new,]
 
           weatherForecastArr[0].area_code_forecast = 0
@@ -31,7 +37,7 @@ namespace :weather_forecast_fetch do
           weatherForecastArr[2].area_code_forecast = 2
           weatherForecastArr[3].area_code_forecast = 3
           #time_defines = forecast_xml.xpath('//TimeDefines')
-          item_nodes_arr = time_series_info_nodes.map {|time_series_info| time_series_info.xpath('.//Item')}
+          item_nodes_arr = time_series_info_nodes.map {|time_series_info| time_series_info.xpath('.//xmlns:Item',namespaces)}
 
           item_nodes_arr[0].zip(weatherForecastArr).each do |item, weatherForecast|
             #if '中部' === item.xpath('.//Area/Name').text then
@@ -41,18 +47,18 @@ namespace :weather_forecast_fetch do
             #weatherForecast = WeatherForecast.new
 
             #weatherForecast.area_code_forecast = 0
-            weatherForecast.time_id_1 = time_series_info_nodes[0].xpath('.//TimeDefine[@timeId="1"]')[0].xpath('DateTime')&.text
-            weatherForecast.time_id_2 = time_series_info_nodes[0].xpath('.//TimeDefine[@timeId="2"]')[0].xpath('DateTime')&.text
-            weatherForecast.time_id_3 = time_series_info_nodes[0].xpath('.//TimeDefine[@timeId="3"]')[0].xpath('DateTime')&.text
+            weatherForecast.time_id_1 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="1"]/xmlns:DateTime',namespaces)&.text
+            weatherForecast.time_id_2 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="2"]/xmlns:DateTime',namespaces)&.text
+            weatherForecast.time_id_3 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="3"]/xmlns:DateTime',namespaces)&.text
 
 
-            weatherForecast.weather_1 = item.xpath('.//WeatherForecastPart[@refID="1"]')[0].xpath('Sentence')&.text
-            weatherForecast.weather_2 = item.xpath('.//WeatherForecastPart[@refID="2"]')[0].xpath('Sentence')&.text
-            weatherForecast.weather_3 = item.xpath('.//WeatherForecastPart[@refID="3"]')[0].xpath('Sentence')&.text
+            weatherForecast.weather_1 = item.xpath('.//xmlns:WeatherForecastPart[@refID="1"]/xmlns:Sentence',namespaces)&.text
+            weatherForecast.weather_2 = item.xpath('.//xmlns:WeatherForecastPart[@refID="2"]/xmlns:Sentence',namespaces)&.text
+            weatherForecast.weather_3 = item.xpath('.//xmlns:WeatherForecastPart[@refID="3"]/xmlns:Sentence',namespaces)&.text
 
-            weatherForecast.wind_1 = item.xpath('.//WindForecastPart[@refID="1"]')[0].xpath('Sentence')&.text
-            weatherForecast.wind_2 = item.xpath('.//WindForecastPart[@refID="2"]')[0].xpath('Sentence')&.text
-            weatherForecast.wind_3 = item.xpath('.//WindForecastPart[@refID="3"]')[0].xpath('Sentence')&.text
+            weatherForecast.wind_1 = item.xpath('.//xmlns:WindForecastPart[@refID="1"]/xmlns:Sentence',namespaces)&.text
+            weatherForecast.wind_2 = item.xpath('.//xmlns:WindForecastPart[@refID="2"]/xmlns:Sentence',namespaces)&.text
+            weatherForecast.wind_3 = item.xpath('.//xmlns:WindForecastPart[@refID="3"]/xmlns:Sentence',namespaces)&.text
 
 
             #break
