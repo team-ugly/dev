@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117045850) do
+ActiveRecord::Schema.define(version: 20171218140212) do
 
   create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -153,6 +153,10 @@ ActiveRecord::Schema.define(version: 20171117045850) do
     t.string "temperature_9"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "max_min_temperature_type_1"
+    t.string "max_min_temperature_type_2"
+    t.string "max_min_temperature_type_3"
+    t.string "max_min_temperature_type_4"
   end
 
 end

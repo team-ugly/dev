@@ -10,6 +10,7 @@ class NokogiriTestSchool
 
   url = 'http://www.data.jma.go.jp/developer/xml/feed/regular_l.xml'
   xml = Nokogiri::XML(open(url,prx_opt).read)
+  #xml = Nokogiri::XML(open(url).read)
   xml.remove_namespaces!
   entry_nodes = xml.xpath('//entry')
 
@@ -22,6 +23,7 @@ class NokogiriTestSchool
         puts "コンテンツ:" + entry.xpath('content').text
         forecast_xml_url = entry.xpath('link/@href').text
         forecast_xml = Nokogiri::XML(open(forecast_xml_url,prx_opt).read)
+        #forecast_xml = Nokogiri::XML(open(forecast_xml_url).read)
 
         #namespaceを設定する
         namespaces = {
@@ -68,12 +70,12 @@ class NokogiriTestSchool
 
           #puts item&.text
 
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[0]&.text
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[1]&.text
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[2]&.text
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[3]&.text
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[4]&.text
-          puts item.xpath('.//xmlns:ProbabilityOfPrecipitationPart/jmx_eb:ProbabilityOfPrecipitation/@description',namespaces)[5]&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="1"]/@description',namespaces)&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="2"]/@description',namespaces)&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="3"]/@description',namespaces)&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="4"]/@description',namespaces)&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="5"]/@description',namespaces)&.text
+          puts item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="6"]/@description',namespaces)&.text
 
 
 
