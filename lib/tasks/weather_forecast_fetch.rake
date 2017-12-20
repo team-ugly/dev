@@ -8,8 +8,8 @@ namespace :weather_forecast_fetch do
     prx_opt = {:proxy => proxy_uri}
 
     feed_url = 'http://www.data.jma.go.jp/developer/xml/feed/regular_l.xml'
-    #feed_xml = Nokogiri::XML(open(feed_url, prx_opt).read)
-    feed_xml = Nokogiri::XML(open(feed_url).read)
+    feed_xml = Nokogiri::XML(open(feed_url, prx_opt).read)
+    #feed_xml = Nokogiri::XML(open(feed_url).read)
     feed_xml.remove_namespaces!
     entry_nodes = feed_xml.xpath('//entry')
 
@@ -21,8 +21,8 @@ namespace :weather_forecast_fetch do
           puts "観測地点:" + entry.xpath('author/name').text
           puts "コンテンツ:" + entry.xpath('content').text
           forecast_xml_url = entry.xpath('link/@href').text
-         # forecast_xml = Nokogiri::XML(open(forecast_xml_url, prx_opt).read)
-          forecast_xml = Nokogiri::XML(open(forecast_xml_url).read)
+          forecast_xml = Nokogiri::XML(open(forecast_xml_url, prx_opt).read)
+          #forecast_xml = Nokogiri::XML(open(forecast_xml_url).read)
 
           #forecast_xml.remove_namespaces!
 
