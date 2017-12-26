@@ -124,35 +124,6 @@
 
 
 
-<!script type="text/javascript">
-    function initMap() {
-
-        var test ={lat: <%= @latitude %>, lng: <%= @longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: test
-        });
-        var transitLayer = new google.maps.TransitLayer();
-        transitLayer.setMap(map);
-
-        var contentString = '住所：<%= @address %>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-        var marker = new google.maps.Marker({
-            position:test,
-            map: map,
-            title: contentString
-        });
-
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-    }
-<!/script>
-
-
 
 
 
@@ -163,28 +134,18 @@
 
 
 <div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
 </div>
 
 
 <script>
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers([
-            {
-                "lat": 0,
-                "lng": 0,
-                "picture": {
-                    "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-                    "width":  32,
-                    "height": 32
-                },
-                "infowindow": "hello!"
-            }
-        ]);
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+        var markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-    });</script>
+    });
+</script>
 
 
 
