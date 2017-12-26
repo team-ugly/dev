@@ -18,7 +18,8 @@ namespace :weather_information_fetch do
 
     url_parts.zip(area_codes).each  do |url_part,area_code|
       url = "http://www.jma.go.jp/jp/amedas_h/today-#{url_part}.html?areaCode=000&groupCode=59"
-      doc = Nokogiri::HTML(open(url, prx_opt))
+      #doc = Nokogiri::HTML(open(url, prx_opt))
+      doc = Nokogiri::HTML(open(url))
 
       #feed_xml = Nokogiri::XML(open(feed_url).read)
       #puts doc.xpath('//body/div[@id="base"]/div[@id="main"]/div[@id="info"]/div[@id="main_table"]/div[@id="div_table"]/table[@id="tbl_list"]')&.text
@@ -35,7 +36,7 @@ namespace :weather_information_fetch do
       # puts "wind_s" + trList[2].xpath('.//td')[4].text
       #puts "sun" +  trList[0].xpath('.//tr')[2].xpath('.//td')[5].text.blank? ? nil:tableList[0].xpath('.//tr')[2].xpath('.//td')[5].text
 
-      trList.each.with_index(0) do |tr,index|
+      trList.each_with_index do |tr,index|
         if(index >= 2) then
           weatherInformation = WeatherInformation.new
           weatherInformation.area_code = area_code
