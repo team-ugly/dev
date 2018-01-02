@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
       marker.lat place.latitude
       marker.lng place.longitude
       marker.infowindow place.name
+      marker.json({name: place.name})
     end
 
   end
@@ -69,13 +70,13 @@ class PlacesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_place
+    @place = Place.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def place_params
-      params.require(:place).permit(:name, :description, :latitude, :longitude)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def place_params
+    params.require(:place).permit(:name, :description, :latitude, :longitude)
+  end
 end

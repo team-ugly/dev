@@ -46,20 +46,6 @@
   </tbody>
 </table>
 
-<body>
-
-
-<div class="container-fluid">
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-info") %>
-  <% end %>
-
-  <%= yield %>
-
-</div>
-
-</body>
 
 
 
@@ -121,18 +107,6 @@
 <br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <div style='width: 800px;'>
   <div id="multi_markers" style='width: 800px; height: 400px;'></div>
 </div>
@@ -146,15 +120,4 @@
         handler.fitMapToBounds();
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
 </html>
