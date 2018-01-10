@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-      marker.infowindow place.name
+      marker.infowindow render_to_string(partial: "places/infowindow", locals: { place: place })
       marker.json({name: place.name})
     end
 
@@ -77,6 +77,6 @@ class PlacesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def place_params
-    params.require(:place).permit(:name, :description, :latitude, :longitude)
+    params.require(:place).permit(:name, :description,:address)
   end
 end

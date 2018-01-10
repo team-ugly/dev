@@ -53,3 +53,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'gmaps4rails'
 
 gem 'coffee-script-source', '1.8.0'
+gem 'geocoder'

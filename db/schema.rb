@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216130858) do
+ActiveRecord::Schema.define(version: 20180110155726) do
 
   create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171216130858) do
     t.float "longitude", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -135,6 +136,22 @@ ActiveRecord::Schema.define(version: 20171216130858) do
     t.string "min_temperature_4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "max_min_temperature_type_1"
+    t.string "max_min_temperature_type_2"
+    t.string "max_min_temperature_type_3"
+    t.string "max_min_temperature_type_4"
+  end
+
+  create_table "weather_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "area_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "time"
+    t.string "temperature"
+    t.string "rain"
+    t.string "wind_direction"
+    t.string "wind_speed"
+    t.string "sun"
   end
 
 end
