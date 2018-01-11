@@ -1,0 +1,47 @@
+<%= form_with(model: place, local: true) do |form| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :名前 %>
+    <%= form.text_field :name, id: :place_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :説明 %>
+    <%= form.text_field :description, id: :place_description %>
+  </div>
+
+    <div class="field">
+      <%= form.label :住所 %>
+      <%= form.text_field :address, id: :place_address,:placeholder => 'ざっくり' %>
+    </div>
+
+  <div class="field">
+    <%= form.label :緯度 %>
+    <%= form.text_field :latitude, id: :place_latitude,:readonly => true, :placeholder => 'auto'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :経度 %>
+    <%= form.text_field :longitude, id: :place_longitude,:readonly => true,:placeholder => 'auto' %>
+  </div>
+
+    <div class="field">
+      <%= form.label :あなたのID %>
+      <%= form.text_field :byid, id: :place_byid,:readonly => true,value:current_user.id %>
+</div>
+    <% if current_user.id == @place.byid %>
+  <div class="actions">
+    <%= form.submit %>
+  </div><% end %>
+<% end %>
