@@ -1,9 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charaset=Shift-JIS>
+  <title>
+    <%= @place.name %>
+  </title>
+</head>
+
+<body>
+<div class="main">
+  <div class="text">
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @place.name %>
 </p>
+
+    <p>
+      <strong>所在地:</strong>
+      <%= @place.address %>
+    </p>
 
 <p>
   <strong>Description:</strong>
@@ -19,6 +38,28 @@
   <strong>Longitude:</strong>
   <%= @place.longitude %>
 </p>
+  </div>
+
+  <div class="img">
+    <img src="farm.png" alt="写真" title="AAA農場1">
+  </div>
+
+
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
+
+  <div class="comment">農地へのコメント
+
+    <form>
+      <textarea name ="text" cols ="30" rows ="10"></textarea>
+    </form>
+  </div>
+
+  <div class="botton">
+    <input type="submit"value="コメントする"><!-- submitは入力した情報を送信する-->
+  </div>
+
+</div>
+</body>
+</html>

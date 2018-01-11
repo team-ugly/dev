@@ -12,29 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :名前 %>
     <%= form.text_field :name, id: :place_name %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :説明 %>
     <%= form.text_field :description, id: :place_description %>
   </div>
 
     <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address, id: :place_address %>
+      <%= form.label :住所 %>
+      <%= form.text_field :address, id: :place_address,:placeholder => 'ざっくり' %>
     </div>
 
   <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :place_latitude %>
+    <%= form.label :緯度 %>
+    <%= form.text_field :latitude, id: :place_latitude,:readonly => true, :placeholder => 'auto'%>
   </div>
 
   <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :place_longitude %>
+    <%= form.label :経度 %>
+    <%= form.text_field :longitude, id: :place_longitude,:readonly => true,:placeholder => 'auto' %>
   </div>
+
+    <div class="field">
+      <%= form.label :あなたのID %>
+      <%= form.text_field :byid, id: :place_byid,:readonly => true,value:current_user.id %>
+</div>
 
   <div class="actions">
     <%= form.submit %>
