@@ -45,8 +45,9 @@
   </div>
 
 
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
+  <% if current_user.id == @place.byid %>
+<%= link_to 'Edit', edit_place_path(@place) %>
+  <% end %>
 <%= link_to 'Back', places_path %>
 
   <div class="comment">農地へのコメント

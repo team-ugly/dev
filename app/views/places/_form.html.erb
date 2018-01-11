@@ -40,8 +40,8 @@
       <%= form.label :あなたのID %>
       <%= form.text_field :byid, id: :place_byid,:readonly => true,value:current_user.id %>
 </div>
-
+    <% if current_user.id == @place.byid %>
   <div class="actions">
     <%= form.submit %>
-  </div>
+  </div><% end %>
 <% end %>
