@@ -4,12 +4,12 @@ namespace :weather_forecast_fetch do
 
   desc "気象庁のATOMFeedからXMLをスクレイピングし天気予報をDBに格納する"
   task :fetch => :environment do
-    proxy_uri = 'http://proxy.oita-ct.ac.jp:80'
-    prx_opt = {:proxy => proxy_uri}
+    # proxy_uri = 'http://proxy.oita-ct.ac.jp:80'
+    # prx_opt = {:proxy => proxy_uri}
 
     feed_url = 'http://www.data.jma.go.jp/developer/xml/feed/regular_l.xml'
-    feed_xml = Nokogiri::XML(open(feed_url, prx_opt).read)
-    #feed_xml = Nokogiri::XML(open(feed_url).read)
+    #feed_xml = Nokogiri::XML(open(feed_url, prx_opt).read)
+    feed_xml = Nokogiri::XML(open(feed_url).read)
     feed_xml.remove_namespaces!
     entry_nodes = feed_xml.xpath('//entry')
 
@@ -21,8 +21,8 @@ namespace :weather_forecast_fetch do
           puts "観測地点:" + entry.xpath('author/name').text
           puts "コンテンツ:" + entry.xpath('content').text
           forecast_xml_url = entry.xpath('link/@href').text
-          forecast_xml = Nokogiri::XML(open(forecast_xml_url, prx_opt).read)
-          #forecast_xml = Nokogiri::XML(open(forecast_xml_url).read)
+          #forecast_xml = Nokogiri::XML(open(forecast_xml_url, prx_opt).read)
+          forecast_xml = Nokogiri::XML(open(forecast_xml_url).read)
 
           #forecast_xml.remove_namespaces!
 
@@ -33,24 +33,17 @@ namespace :weather_forecast_fetch do
           }
 
           time_series_info_nodes = forecast_xml.xpath('//xmlns:TimeSeriesInfo',namespaces)
-          weatherForecastArr = [WeatherForecast.new, WeatherForecast.new, WeatherForecast.new, WeatherForecast.new,]
+          weatherForecastArr = [WeatherForecast.find_by(id:1), WeatherForecast.find_by(id:2), WeatherForecast.find_by(id:3), WeatherForecast.find_by(id:4),]
 
-          weatherForecastArr[0].area_code_forecast = 0
-          weatherForecastArr[1].area_code_forecast = 1
-          weatherForecastArr[2].area_code_forecast = 2
-          weatherForecastArr[3].area_code_forecast = 3
+                  # weatherForecastArr[0].area_code_forecast = 0
+          # weatherForecastArr[1].area_code_forecast = 1
+          # weatherForecastArr[2].area_code_forecast = 2
+          # weatherForecastArr[3].area_code_forecast = 3
 
           #time_defines = forecast_xml.xpath('//TimeDefines')
           item_nodes_arr = time_series_info_nodes.map {|time_series_info| time_series_info.xpath('.//xmlns:Item',namespaces)}
 
           item_nodes_arr[0].zip(weatherForecastArr).each do |item, weatherForecast|
-            #if '中部' === item.xpath('.//Area/Name').text then
-            #weatherForecastPart = item.xpath('.//WeatherForecastPart[@refID="1"]')[0]
-
-            #weatherForecastテーブルにデータをinsert
-            #weatherForecast = WeatherForecast.new
-
-            #weatherForecast.area_code_forecast = 0
             weatherForecast.time_id_1 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="1"]/xmlns:DateTime',namespaces)&.text
             weatherForecast.time_id_2 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="2"]/xmlns:DateTime',namespaces)&.text
             weatherForecast.time_id_3 = time_series_info_nodes[0].xpath('.//xmlns:TimeDefine[@timeId="3"]/xmlns:DateTime',namespaces)&.text
@@ -65,8 +58,6 @@ namespace :weather_forecast_fetch do
             weatherForecast.wind_3 = item.xpath('.//xmlns:WindForecastPart[@refID="3"]/xmlns:Sentence',namespaces)&.text
 
 
-            #break
-            #end
           end
 
           item_nodes_arr[1].zip(weatherForecastArr).each do |item, weatherForecast|

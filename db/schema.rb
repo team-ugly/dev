@@ -15,11 +15,14 @@ ActiveRecord::Schema.define(version: 20171222045050) do
   create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "area_code_forecasts"
+    t.integer "area_code_forecast"
     t.string "area_name"
   end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "area_code"
+    t.string "area_name"
+    t.integer "area_code_forecast"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
