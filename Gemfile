@@ -54,3 +54,8 @@ gem 'gmaps4rails'
 
 gem 'coffee-script-source', '1.8.0'
 gem 'geocoder'
+
+
+gem 'jquery-rails'
+
+gem 'bootstrap', '~> 4.0.0.beta3'
