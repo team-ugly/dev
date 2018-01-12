@@ -1,7 +1,7 @@
 <h2>Log in</h2>
 
-<!%= stylesheet_link_tag"new", media:"all", "data-turbolinks-track" => true %>
-<!link rel="stylesheet" href="new.scss" type="text/css">
+<%= stylesheet_link_tag"new", media:"all", "data-turbolinks-track" => true %>
+<link rel="stylesheet" href="new.scss" type="text/css">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
