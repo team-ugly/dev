@@ -174,7 +174,7 @@ iframe {
   background-position: center;
   background-size: cover;
   position: relative;
-  z-index: 1;  
+
 }
 
 .container-login100::before {
@@ -186,7 +186,7 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(146, 146, 146, 0.51);
 }
 
 .wrap-login100 {
