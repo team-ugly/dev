@@ -349,16 +349,10 @@
           <!--                    |-->
           <!--                    button.search-btn(type='submit')-->
           <!--                        i.fa.fa-search-->
-          <li class="dropdown"><a class="dropdown-toggle" href="documentation.html" data-toggle="dropdown">Documentation</a>
-            <ul class="dropdown-menu">
-              <li><a href="documentation.html#contact">Contact Form</a></li>
-              <li><a href="documentation.html#reservation">Reservation Form</a></li>
-              <li><a href="documentation.html#mailchimp">Mailchimp</a></li>
-              <li><a href="documentation.html#gmap">Google Map</a></li>
-              <li><a href="documentation.html#plugin">Plugins</a></li>
-              <li><a href="documentation.html#changelog">Changelog</a></li>
-            </ul>
+          <% if user_signed_in? %>
+          <li class="dropdown"><a class="btn btn-link" href="documentation.html" data-toggle="dropdown">Logout</a>
           </li>
+          <% else %><% end %>
         </ul>
       </div>
     </div>
@@ -402,11 +396,23 @@
   </nav>
 </header>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice.present? %>
+    <div class="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <p><%= notice %></p>
+    </div>
+<% end %>
 
-<%= yield %>
+<% if alert.present? %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <p><%= alert %></p>
+    </div>
+<% end %>
+
+
 </body>
+<%= yield %>
 <script src="/assets/lib/jquery/dist/jquery.js"></script>
 <script src="/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/assets/lib/wow/dist/wow.js"></script>
