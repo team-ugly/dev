@@ -1,59 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="/assets/contactform/images/icons/favicon.ico"/>
+  <!--===============================================================================================-->
+  <!link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/fonts/iconic/css/material-design-iconic-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/vendor/noui/nouislider.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/assets/contactform/css/main.css">
+  <!--===============================================================================================-->
+</head>
+<body>
+
 <%= form_with(model: place, local: true) do |form| %>
-  <% if place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+    <% if place.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
 
-      <ul>
-      <% place.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% place.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					農地登録
+				</span>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+        <span class="label-input100">名前 *</span>
+        <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
+        <%= form.text_field :name, id: :place_name,:class=>"input100",:placeholder=>"農場名を入力してください" %>
+      </div>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+        <span class="label-input100">住所 *</span>
+        <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
+        <%= form.text_field :address, id: :place_address,:class=>"input100",:placeholder=>"住所を入力してください" %>
+      </div>
+
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
+        <span class="label-input100">緯度</span>
+        <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+        <%= form.text_field :latitude, id: :place_latitude,:readonly => true, :class=>"input100",:placeholder=>"自動で入力します"%>
+      </div>
+
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
+      <span class="label-input100">経度</span>
+      <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+      <%= form.text_field :longitude, id: :place_longitude,:readonly => true, :class=>"input100",:placeholder=>"自動で入力します"%>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :名前 %>
-    <%= form.text_field :name, id: :place_name %>
+      <div class="wrap-input100 bg1 rs1-wrap-input100" style="display:none;">
+        <span class="label-input100">ID</span>
+        <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+        <%= form.text_field :byid, id: :place_byid,:readonly => true, :class=>"input100",value:current_user.id%>
+      </div>
+
+      <!--div class="wrap-input100 input100-select bg1">
+        <span class="label-input100">Needed Services *</span>
+        <div>
+          <select class="js-select2" name="service">
+            <option>Please chooses</option>
+            <option>eCommerce Bussiness</option>
+            <option>UI/UX Design</option>
+            <option>Online Services</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+      </div>
+
+      <div class="w-full dis-none js-show-service">
+        <div class="wrap-contact100-form-radio">
+          <span class="label-input100">What type of products do you sell?</span>
+
+          <div class="contact100-form-radio m-t-15">
+            <input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
+            <label class="label-radio100" for="radio1">
+              Phycical Products
+            </label>
+          </div>
+
+          <div class="contact100-form-radio">
+            <input class="input-radio100" id="radio2" type="radio" name="type-product" value="digital">
+            <label class="label-radio100" for="radio2">
+              Digital Products
+            </label>
+          </div>
+
+          <div class="contact100-form-radio">
+            <input class="input-radio100" id="radio3" type="radio" name="type-product" value="service">
+            <label class="label-radio100" for="radio3">
+              Services Consulting
+            </label>
+          </div>
+        </div>
+
+        <div class="wrap-contact100-form-range">
+          <span class="label-input100">Budget *</span>
+
+          <div class="contact100-form-range-value">
+            $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+            <input type="text" name="from-value">
+            <input type="text" name="to-value">
+          </div>
+
+          <div class="contact100-form-range-bar">
+            <div id="filter-bar"></div>
+          </div>
+        </div>
+      </div-->
+
+      <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+        <span class="label-input100">農場プロフィール(登録後も変更できます)</span>
+        <!textarea class="input100" name="message" placeholder="Your message here..."><!/textarea>
+        <%= form.text_area :description, id: :place_description,:class=>"input100" %>
+      </div>
+      <div class ="regbutton">
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn">
+          <%= form.submit :class => 'contact100-form-btn' %>
+						<span>
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+        </button>
+      </div>
+      </div>
+    </form>
   </div>
-
-  <div class="field">
-    <%= form.label :説明 %>
-    <%= form.text_field :description, id: :place_description %>
-  </div>
-
-    <div class="field">
-      <%= form.label :住所 %>
-      <%= form.text_field :address, id: :place_address,:placeholder => 'ざっくり' %>
-    </div>
-
-  <div class="field">
-    <%= form.label :緯度 %>
-    <%= form.text_field :latitude, id: :place_latitude,:readonly => true, :placeholder => 'auto'%>
-  </div>
-
-  <div class="field">
-    <%= form.label :経度 %>
-    <%= form.text_field :longitude, id: :place_longitude,:readonly => true,:placeholder => 'auto' %>
-  </div>
-
-    <div class="field">
-      <%= form.label :あなたのID %>
-      <%= form.text_field :byid, id: :place_byid,:readonly => true,value:current_user.id %>
 </div>
-
-  <div class="actions">
-    <%= form.submit :class => 'btn btn-primary' %>
-  </div>
 <% end %>
 
 
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/bootstrap/js/popper.js"></script>
+<script src="/assets/contactform/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/select2/select2.min.js"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
 
-<h1>Listing Tweets</h1>
 
+        $(".js-select2").each(function(){
+            $(this).on('select2:close', function (e){
+                if($(this).val() == "Please chooses") {
+                    $('.js-show-service').slideUp();
+                }
+                else {
+                    $('.js-show-service').slideUp();
+                    $('.js-show-service').slideDown();
+                }
+            });
+        });
+    })
+</script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/daterangepicker/moment.min.js"></script>
+<script src="/assets/contactform/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/contactform/vendor/noui/nouislider.min.js"></script>
+<script>
+    var filterBar = document.getElementById('filter-bar');
 
+    noUiSlider.create(filterBar, {
+        start: [ 1500, 3900 ],
+        connect: true,
+        range: {
+            'min': 1500,
+            'max': 7500
+        }
+    });
 
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default">Left</button>
-  <button type="button" class="btn btn-default">Middle</button>
-  <button type="button" class="btn btn-default">Right</button>
-</div>
+    var skipValues = [
+        document.getElementById('value-lower'),
+        document.getElementById('value-upper')
+    ];
+
+    filterBar.noUiSlider.on('update', function( values, handle ) {
+        skipValues[handle].innerHTML = Math.round(values[handle]);
+        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+    });
+</script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
