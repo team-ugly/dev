@@ -2,9 +2,9 @@ class NokogiriTestHome
   require 'nokogiri'
   require 'open-uri'
 
-  url = 'http://www.data.jma.go.jp/developer/xml/feed/regular_l.xml'
+  atomFeed_url = 'http://www.data.jma.go.jp/developer/xml/feed/regular_l.xml'
 
-  xml = Nokogiri::XML(open(url).read)
+  xml = Nokogiri::XML(open(atomFeed_url).read)
   xml.remove_namespaces!
   entry_nodes = xml.xpath('//entry')
 

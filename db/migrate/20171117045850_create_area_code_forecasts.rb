@@ -4,7 +4,7 @@ class CreateAreaCodeForecasts < ActiveRecord::Migration[5.1]
 
       t.timestamps
 
-      t.integer :area_code_forecasts
+      t.integer :area_code_forecast
       t.string :area_name
     end
   end

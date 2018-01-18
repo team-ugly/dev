@@ -50,6 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
+
 gem 'gmaps4rails'
 
 gem 'coffee-script-source', '1.8.0'
@@ -59,3 +60,6 @@ gem 'geocoder'
 gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.0.0.beta3'
+
+gem 'whenever', require: false
+
