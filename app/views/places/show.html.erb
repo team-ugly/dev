@@ -44,6 +44,8 @@
     <img src="farm.png" alt="写真" title="AAA農場1">
   </div>
 
+  <%= @place.id %>
+
 
   <% if current_user.id == @place.byid %>
 <%= link_to 'Edit', edit_place_path(@place) %>
