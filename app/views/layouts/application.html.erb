@@ -40,14 +40,14 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="/">HOME</a></li>
+        <li class="active"><a href="/">ホーム</a></li>
         <% if user_signed_in? %><% else %>
-        <li><a href="/users/sign_in">LOG IN</a></li>
-        <li><a href="/users/sign_up">SIGN UP</a></li>
+        <li><a href="/users/sign_in">ログイン</a></li>
+        <li><a href="/users/sign_up">新規登録</a></li>
         <% end %>
         <% if user_signed_in? %>
-        <li><a href="/users/edit">EDIT PROFILE</a></li>
-        <li><a href="/users/sign_out">LOGOUT</a></li>
+        <li><a href="/users/edit">プロフィール編集</a></li>
+        <li><a href="/users/sign_out">ログアウト</a></li>
         <% end %>
         <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>
       </ul>
