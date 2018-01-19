@@ -43,7 +43,7 @@
 					</span>
 
             <span class="login100-form-title p-b-34 p-t-27">
-						Log in
+						ログイン
 					</span>
 
 
@@ -52,27 +52,27 @@
 
             <div class="wrap-input100 validate-input" data-validate = "Enter username">
 
-              <%= f.email_field :email, autofocus: true, class:'input100',:placeholder=>"Email" %>
+              <%= f.email_field :email, autofocus: true, class:'input100',:placeholder=>"Eメール" %>
               <span class="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Enter password">
               <!input class="input100" type="password" name="pass" placeholder="Password"><!--もともとあったボタン-->
-              <%= f.password_field :password, autocomplete: "off", :class=>"input100",:placeholder=>"Password" %>
+              <%= f.password_field :password, autocomplete: "off", :class=>"input100",:placeholder=>"パスワード" %>
               <span class="focus-input100" data-placeholder="&#xf191;"></span>
             </div>
 
             <div class="contact100-form-checkbox">
               <!input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-              <%= f.check_box :remember_me,:class=>"input-checkbox100",:id=>"ckb1",:type=>"checkbox",:name=>"remember-me" %>
+              <%= f.check_box :remember_me,:class=>"input-checkbox100",:id=>"ckb1",:type=>"checkbox",:name=>"remember_me" %>
               <label class="label-checkbox100" for="ckb1">
-                Remember me
+                ログイン状態を保持する
               </label>
             </div>
 
             <div class="container-login100-form-btn">
 
-              <%= f.submit 'Log in', class:'login100-form-btn' %>
+              <%= f.submit 'ログイン', class:'login100-form-btn' %>
 
 
 
@@ -82,7 +82,7 @@
 
             <div class="text-center p-t-90">
               <a class="txt1" href="/users/password/new">
-                Forgot Password?
+                パスワードを忘れたら
               </a>
             </div>
           </form>
