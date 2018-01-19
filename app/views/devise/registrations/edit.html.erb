@@ -49,28 +49,28 @@
           <% end %>
 
           <div class="wrap-input100 validate-input bg1">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.label :パスワード %> <i>(変更したくない場合は空白のままにしてください)</i><br />
             <%= f.password_field :password, autocomplete: "off" %>
             <% if @minimum_password_length %>
                 <br />
-                <em><%= @minimum_password_length %> characters minimum</em>
+                <em>※<%= @minimum_password_length %> 文字以上で入力してください</em>
             <% end %>
           </div>
 
           <div class="wrap-input100 validate-input bg1">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label :パスワード確認 %> <i>(変更後のパスワードを再度入力してください)</i><br />
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
 
           <div class="wrap-input100 validate-input bg1">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label :現在のパスワード %> <i>（変更を確認するために現在のパスワードが必要です）</i><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
 
           <div class="regbutton">
             <div class="container-contact100-form-btn">
               <button class="contact100-form-btn">
-                <input type="submit" name="commit" value="Create Place" class="contact100-form-btn" data-disable-with="Create Place">
+                <input type="submit" name="commit" value="変更" class="contact100-form-btn" data-disable-with="Create Place">
                 <span>
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
@@ -79,11 +79,11 @@
           </div>
 
         </form>
-        <h3>Cancel my account</h3>
+        <h3>アカウントの削除</h3>
 
         <p>Unhappy? <%= button_to "このアカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete %></p>
 
-        <%= link_to "Back", :back %>
+        <%= link_to "戻る", :back %>
 
       </div>
     </div>
