@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: onitnogyo_production
-  username: onitnogyo
-  password: <%= ENV['ONITNOGYO_DATABASE_PASSWORD'] %>
+  username: root
+  password:
