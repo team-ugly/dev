@@ -90,4 +90,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { :host => '13.230.67.50' }
+  config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => 'smtp.gmail.com',
+      :user_name => "ishimaru.hiroki.test@gmail.com", #gmailアドレス
+      :password => "dpfm3058google", #gmailパスワード
+      :authentication => 'login',
+  }
 end
