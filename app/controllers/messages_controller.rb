@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body )
+    params.require(:message).permit(:body, :place_id, :user_id, :user_name)
   end
 
 
