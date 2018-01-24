@@ -20,8 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 
 set :output, '/devnogyo/log/cron.log'
+env :PATH, ENV['PATH']
 
-every 1.hours, at:10 do
+every 3.minutes do
   rake "weather_information_fetch:fetch"
 end
 
