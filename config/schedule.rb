@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, '/dev/log/cron.log'
+set :output, '/devnogyo/log/cron.log'
 
 every 1.hours, at:10 do
   rake "weather_information_fetch:fetch"
