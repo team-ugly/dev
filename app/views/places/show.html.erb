@@ -63,6 +63,23 @@
     <input type="submit"value="コメントする"><!-- submitは入力した情報を送信する-->
   </div>
 
+  <div class="comment-form">
+    <%= form_for([@place , @message]) do |f| %>
+
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Send message..." %>
+      </div>
+
+      <%= f.submit "Post", class: "btn btn-primary" %>
+      <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <% end %>
+
+
+  </div>
+
+
 </div>
 </body>
 </html>

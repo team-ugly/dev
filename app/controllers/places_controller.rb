@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    @message = Message.new
   end
 
   # GET /places/new

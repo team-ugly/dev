@@ -63,6 +63,3 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 
 gem 'whenever', require: false
 
-group :production, :staging do
-    gem 'unicorn'
-end
