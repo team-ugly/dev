@@ -52,4 +52,4 @@ production:
   <<: *default
   database: onitnogyo_production
   username: root
-  password:
+  password: password

@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180124052703) do
     t.string "com"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "placeid"
+    t.integer "place_id"
   end
 
   create_table "farms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,6 +67,15 @@ ActiveRecord::Schema.define(version: 20180124052703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "place_id"
+  end
+
+  create_table "placecomments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "byname"
+    t.text "body"
+    t.integer "placeid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
