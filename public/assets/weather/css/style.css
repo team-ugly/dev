@@ -28,10 +28,12 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*--end reset--*/
 body {
+    margin-top: 90px;
     background:#f1c40f;
     background-attachment: fixed;
 	background-size:cover;
 	font-family: 'Josefin Sans', sans-serif;
+
 }
 h1 {
     font-size: 3em;
