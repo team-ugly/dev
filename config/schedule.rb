@@ -19,8 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, '/devnogyo/log/cron.log'
-env :PATH, ENV['PATH']
+set :output, "#{Rails.root}/log/cron.log"
+set :environment, :production
 
 every 3.minutes do
   rake "weather_information_fetch:fetch"
