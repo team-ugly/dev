@@ -27,70 +27,69 @@
   <link rel="stylesheet" type="text/css" href="/assets/contactform/css/util.css">
   <link rel="stylesheet" type="text/css" href="/assets/contactform/css/main.css">
   <!--===============================================================================================-->
+
+
 </head>
 <body>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-    <div class="container-contact100">
-      <div class="wrap-contact100">
-        <form class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					プロフィール編集
-				</span>
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form">
+				  <span class="contact100-form-title">
+				  	プロフィール編集
+          </span>
 
-          <div class="wrap-input100 validate-input bg1">
-            <%= f.label :eメール %><br />
-            <%= f.email_field :email,:class=>"input100", autofocus: true %>
-          </div>
+        <div class="wrap-input100 validate-input bg1">
+          <%= f.label :eメール %><br />
+          <%= f.email_field :email,:class=>"input100", autofocus: true %>
+        </div>
 
 
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="wrap-input100 validate-input bg1">
+
+          <%= f.label :パスワード %> <i>(変更しない場合は空白のままにしてください)</i><br />
+          <%= f.password_field :password,:class=>"input100", autocomplete: "off" %>
+
+          <% if @minimum_password_length %>
+            <br />
+            <em>※<%= @minimum_password_length %> 文字以上で入力してください</em>
           <% end %>
+        </div>
 
-          <div class="wrap-input100 validate-input bg1">
+        <div class="wrap-input100 validate-input bg1">
+          <%= f.label :パスワード確認 %> <i>(変更後のパスワードを再度入力してください)</i><br />
+          <%= f.password_field :password_confirmation,:class=>"input100", autocomplete: "off" %>
+        </div>
 
-            <%= f.label :パスワード %> <i>(変更したくない場合は空白のままにしてください)</i><br />
-            <%= f.password_field :password,:class=>"input100", autocomplete: "off" %>
+        <div class="wrap-input100 validate-input bg1">
+          <%= f.label :現在のパスワード %> <i>（変更を確認するために現在のパスワードが必要です）</i><br />
+          <%= f.password_field :current_password,:class=>"input100", autocomplete: "off" %>
+        </div>
 
-            <% if @minimum_password_length %>
-                <br />
-                <em>※<%= @minimum_password_length %> 文字以上で入力してください</em>
-            <% end %>
+        <div class="regbutton">
+          <div class="container-contact100-form-btn">
+            <button class="contact100-form-btn">
+              <input type="submit" name="commit" value="変更" class="contact100-form-btn" data-disable-with="Create Place">
+              <span>
+						  	<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						  </span>
+            </button>
           </div>
+        </div>
+        <%= button_to "このアカウントを削除する",registration_path(resource_name),:class=>"btn btn-danger btn-circle", data: { confirm: "本当に削除してよろしいですか？" }, method: :delete%>
+      </form>
 
-          <div class="wrap-input100 validate-input bg1">
-            <%= f.label :パスワード確認 %> <i>(変更後のパスワードを再度入力してください)</i><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </div>
-
-          <div class="wrap-input100 validate-input bg1">
-            <%= f.label :現在のパスワード %> <i>（変更を確認するために現在のパスワードが必要です）</i><br />
-            <%= f.password_field :current_password, autocomplete: "off" %>
-          </div>
-
-          <div class="regbutton">
-            <div class="container-contact100-form-btn">
-              <button class="contact100-form-btn">
-                <input type="submit" name="commit" value="変更" class="contact100-form-btn" data-disable-with="Create Place">
-                <span>
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-              </button>
-            </div>
-          </div>
-
-        </form>
-        <h3>アカウントの削除</h3>
-
-        <p>Unhappy? <%= button_to "このアカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete %></p>
-
-        <%= link_to "戻る", :back %>
-
-      </div>
     </div>
+  </div>
+  <%= link_to "戻る", :back %>
+
 
 <% end %>
 

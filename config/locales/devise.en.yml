@@ -9,7 +9,7 @@ en:
     failure:
       already_authenticated: "既にサインインしています。"
       inactive: "アカウントはまだ有効になっていません。"
-      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      invalid: "パスワードまたはメールアドレスが正しくありません" #無効な%{authentication_keys}またはパスワードです。
       locked: "アカウントはロックされています。"
       last_attempt: "アカウントがロックされる前に、もう1つの試みがあります。"
       not_found_in_database: "無効な %{authentication_keys} またはパスワードです。"
@@ -60,5 +60,5 @@ en:
       not_found: "見つかりません"
       not_locked: "ロックされませんでした"
       not_saved:
-        one: "1つのエラー %{resource}を保存できませんでした:"
-        other: "%{count}つのエラー %{resource}を保存できませんでした:"
+        one: "1つのエラー: %{resource}を保存できませんでした"
+        other: "%{count}つのエラー: %{resource}を保存できませんでした"

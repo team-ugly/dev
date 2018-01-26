@@ -1,25 +1,37 @@
 <title>トップ - UGLY NOTE</title>
 <h1>ようこそ</h1>
 <p>トップページです。</p>
+areacode is
+<%=current_user.area_code %>
+.
+
+<% @area_code_forecasts.each do |area_code_forecast| %>
+
+<% @weather_forecasts.each do |weather_forecast| %>
+
+    <%= weather_forecast.id %>
+    <%= area_code_forecast.area_name %>
+
+    <%= weather_forecast.time_id_1.split(/-|T|:/)[0] %>
+
+    <%#= weather_forecast.time_id_1.split(/-|T|:/)[1].delete(/^0/) %>
+
+
+
+
+
+
+
+
+
+
+<% end %><% end %>
 <%= link_to 'boards', '/boards/index' %>
 <%= link_to 'gmaps', '/places' %>
 
-<map style="width: 800px; height: 400px;" />
 
-<script>
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function() {markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-        }
-    );
-</script>
 
-<script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });
-</script>
+
+
+
+
