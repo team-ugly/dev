@@ -19,6 +19,8 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @message = Message.new
+    @messages = Message.where(place_id: params[:id])
+
   end
 
   # GET /places/new

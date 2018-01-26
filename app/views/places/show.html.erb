@@ -52,17 +52,9 @@
   <% end %>
 <%= link_to 'Back', places_path %>
 
-  <div class="comment">農地へのコメント
 
-    <form>
-      <textarea name ="text" cols ="30" rows ="10"></textarea>
-    </form>
-  </div>
 
-  <div class="botton">
-    <input type="submit"value="コメントする"><!-- submitは入力した情報を送信する-->
-  </div>
-
+<%=current_user.username %>
   <div class="comment-form">
     <%= form_for([@place , @message]) do |f| %>
 
@@ -70,7 +62,28 @@
         <%= f.text_area :body, placeholder: "Send message..." %>
       </div>
 
-      <%= f.submit "Post", class: "btn btn-primary" %>
+
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100" style="display:none;">
+          <span class="label-input100">ID</span>
+          <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+          <%= f.text_field :place_id, id: :place_id,:readonly => true, :class=>"input100",value:@place.id%>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100" style="display:none;">
+          <span class="label-input100">ID</span>
+          <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+          <%= f.text_field :user_id, id: :user_id,:readonly => true, :class=>"input100",value:current_user.id%>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100" style="display:none;">
+          <span class="label-input100">ID</span>
+          <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
+          <%= f.text_field :user_name, id: :user_name,:readonly => true, :class=>"input100",value:current_user.username%>
+        </div>
+
+
+        <%= f.submit "Post", class: "btn btn-primary" %>
       <span class="picture">
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </span>
@@ -78,7 +91,16 @@
 
 
   </div>
+  <table>
+<tbody>
+  <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.body %></td>
 
+
+      </tr>
+  <% end %>
+  </tbody></table>
 
 </div>
 </body>
