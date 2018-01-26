@@ -19,13 +19,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, '/devnogyo/log/cron.log'
-env :PATH, ENV['PATH']
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+set :output, "#{Rails.root}/log/cron.log"
+set :environment, :production
 
-every 3.minutes do
+every 1.hours, at:15 do
   rake "weather_information_fetch:fetch"
-end
-
-every 3.hours, at:15 do
   rake "weather_forecast_fetch:fetch"
 end

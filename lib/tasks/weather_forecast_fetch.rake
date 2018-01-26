@@ -59,12 +59,12 @@ namespace :weather_forecast_fetch do
             weatherForecast.rain_time_id_5 = time_series_info_nodes[1].xpath('.//xmlns:TimeDefine[@timeId="5"]/xmlns:DateTime', namespaces)&.text
             weatherForecast.rain_time_id_6 = time_series_info_nodes[1].xpath('.//xmlns:TimeDefine[@timeId="6"]/xmlns:DateTime', namespaces)&.text
 
-            weatherForecast.rain_1 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="1"]/@description', namespaces)&.text
-            weatherForecast.rain_2 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="2"]/@description', namespaces)&.text
-            weatherForecast.rain_3 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="3"]/@description', namespaces)&.text
-            weatherForecast.rain_4 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="4"]/@description', namespaces)&.text
-            weatherForecast.rain_5 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="5"]/@description', namespaces)&.text
-            weatherForecast.rain_6 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="6"]/@description', namespaces)&.text
+            weatherForecast.rain_1 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="1"]', namespaces)&.text
+            weatherForecast.rain_2 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="2"]', namespaces)&.text
+            weatherForecast.rain_3 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="3"]', namespaces)&.text
+            weatherForecast.rain_4 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="4"]', namespaces)&.text
+            weatherForecast.rain_5 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="5"]', namespaces)&.text
+            weatherForecast.rain_6 = item.xpath('.//jmx_eb:ProbabilityOfPrecipitation[@refID="6"]', namespaces)&.text
 
           end
 
@@ -81,10 +81,10 @@ namespace :weather_forecast_fetch do
             weatherForecast.max_min_temperature_type_3 = item.xpath('.//jmx_eb:Temperature[@refID="3"]/@type', namespaces)&.text
             weatherForecast.max_min_temperature_type_4 = item.xpath('.//jmx_eb:Temperature[@refID="4"]/@type', namespaces)&.text
 
-            weatherForecast.max_min_temperature_1 = item.xpath('.//jmx_eb:Temperature[@refID="1"]/@description', namespaces)&.text
-            weatherForecast.max_min_temperature_2 = item.xpath('.//jmx_eb:Temperature[@refID="2"]/@description', namespaces)&.text
-            weatherForecast.max_min_temperature_3 = item.xpath('.//jmx_eb:Temperature[@refID="3"]/@description', namespaces)&.text
-            weatherForecast.max_min_temperature_4 = item.xpath('.//jmx_eb:Temperature[@refID="4"]/@description', namespaces)&.text
+            weatherForecast.max_min_temperature_1 = item.xpath('.//jmx_eb:Temperature[@refID="1"]', namespaces)&.text
+            weatherForecast.max_min_temperature_2 = item.xpath('.//jmx_eb:Temperature[@refID="2"]', namespaces)&.text
+            weatherForecast.max_min_temperature_3 = item.xpath('.//jmx_eb:Temperature[@refID="3"]', namespaces)&.text
+            weatherForecast.max_min_temperature_4 = item.xpath('.//jmx_eb:Temperature[@refID="4"]', namespaces)&.text
           end
 
           item_nodes_arr[3].zip(weatherForecastArr).each do |item, weatherForecast|
@@ -127,15 +127,15 @@ namespace :weather_forecast_fetch do
             weatherForecast.temperature_time_id_9 = time_series_info_nodes[4].xpath('.//xmlns:TimeDefine[@timeId="9"]/xmlns:DateTime', namespaces)&.text
 
             #temperaturepartが３つしかない場合などがあるため対策が必要になると思われる
-            weatherForecast.temperature_1 = item.xpath('.//jmx_eb:Temperature[@refID="1"]/@description', namespaces)&.text
-            weatherForecast.temperature_2 = item.xpath('.//jmx_eb:Temperature[@refID="2"]/@description', namespaces)&.text
-            weatherForecast.temperature_3 = item.xpath('.//jmx_eb:Temperature[@refID="3"]/@description', namespaces)&.text
-            weatherForecast.temperature_4 = item.xpath('.//jmx_eb:Temperature[@refID="4"]/@description', namespaces)&.text
-            weatherForecast.temperature_5 = item.xpath('.//jmx_eb:Temperature[@refID="5"]/@description', namespaces)&.text
-            weatherForecast.temperature_6 = item.xpath('.//jmx_eb:Temperature[@refID="6"]/@description', namespaces)&.text
-            weatherForecast.temperature_7 = item.xpath('.//jmx_eb:Temperature[@refID="7"]/@description', namespaces)&.text
-            weatherForecast.temperature_8 = item.xpath('.//jmx_eb:Temperature[@refID="8"]/@description', namespaces)&.text
-            weatherForecast.temperature_9 = item.xpath('.//jmx_eb:Temperature[@refID="9"]/@description', namespaces)&.text
+            weatherForecast.temperature_1 = item.xpath('.//jmx_eb:Temperature[@refID="1"]', namespaces)&.text
+            weatherForecast.temperature_2 = item.xpath('.//jmx_eb:Temperature[@refID="2"]', namespaces)&.text
+            weatherForecast.temperature_3 = item.xpath('.//jmx_eb:Temperature[@refID="3"]', namespaces)&.text
+            weatherForecast.temperature_4 = item.xpath('.//jmx_eb:Temperature[@refID="4"]', namespaces)&.text
+            weatherForecast.temperature_5 = item.xpath('.//jmx_eb:Temperature[@refID="5"]', namespaces)&.text
+            weatherForecast.temperature_6 = item.xpath('.//jmx_eb:Temperature[@refID="6"]', namespaces)&.text
+            weatherForecast.temperature_7 = item.xpath('.//jmx_eb:Temperature[@refID="7"]', namespaces)&.text
+            weatherForecast.temperature_8 = item.xpath('.//jmx_eb:Temperature[@refID="8"]', namespaces)&.text
+            weatherForecast.temperature_9 = item.xpath('.//jmx_eb:Temperature[@refID="9"]', namespaces)&.text
 
           end
 
