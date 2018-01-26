@@ -410,3 +410,16 @@ a:after {
 }
 
 
+/* =================================================
+    Alert message
+   =================================================*/
+
+.alert.alert-info-alt.alert-dismissable
+{
+    border-color: #f5f5f5;
+    background: #f14a4a;
+    color: #fff;
+}
+
+
+
