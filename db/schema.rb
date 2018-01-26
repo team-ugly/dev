@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116133236) do
+ActiveRecord::Schema.define(version: 20180124052703) do
 
   create_table "area_code_forecasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "area_code_forecast"
+    t.integer "area_code_forecasts"
     t.string "area_name"
   end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "area_code"
-    t.string "area_name"
-    t.integer "area_code_forecast"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180116133236) do
     t.string "com"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "placeid"
+    t.integer "place_id"
   end
 
   create_table "farms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,6 +57,24 @@ ActiveRecord::Schema.define(version: 20180116133236) do
     t.datetime "updated_at", null: false
     t.string "log_title"
     t.string "body"
+    t.integer "user_id"
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.text "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "place_id"
+  end
+
+  create_table "placecomments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "byname"
+    t.text "body"
+    t.integer "placeid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
   end
 
@@ -133,55 +150,18 @@ ActiveRecord::Schema.define(version: 20180116133236) do
     t.string "rain_1"
     t.string "rain_2"
     t.string "rain_3"
-    t.string "rain_4"
-    t.string "rain_5"
-    t.string "rain_6"
-    t.string "max_min_temperature_time_id_1"
-    t.string "max_min_temperature_time_id_2"
-    t.string "max_min_temperature_time_id_3"
-    t.string "max_min_temperature_time_id_4"
-    t.string "max_min_temperature_1"
-    t.string "max_min_temperature_2"
-    t.string "max_min_temperature_3"
-    t.string "max_min_temperature_4"
-    t.string "weather_detail_time_id_1"
-    t.string "weather_detail_time_id_2"
-    t.string "weather_detail_time_id_3"
-    t.string "weather_detail_time_id_4"
-    t.string "weather_detail_time_id_5"
-    t.string "weather_detail_time_id_6"
-    t.string "weather_detail_time_id_7"
-    t.string "weather_detail_time_id_8"
-    t.string "weather_detail_time_id_9"
-    t.string "weather_detail_time_id_10"
-    t.string "weather_detail_1"
-    t.string "weather_detail_2"
-    t.string "weather_detail_3"
-    t.string "weather_detail_4"
-    t.string "weather_detail_5"
-    t.string "weather_detail_6"
-    t.string "weather_detail_7"
-    t.string "weather_detail_8"
-    t.string "weather_detail_9"
-    t.string "weather_detail_10"
     t.string "temperature_time_id_1"
     t.string "temperature_time_id_2"
     t.string "temperature_time_id_3"
     t.string "temperature_time_id_4"
-    t.string "temperature_time_id_5"
-    t.string "temperature_time_id_6"
-    t.string "temperature_time_id_7"
-    t.string "temperature_time_id_8"
-    t.string "temperature_time_id_9"
-    t.string "temperature_1"
-    t.string "temperature_2"
-    t.string "temperature_3"
-    t.string "temperature_4"
-    t.string "temperature_5"
-    t.string "temperature_6"
-    t.string "temperature_7"
-    t.string "temperature_8"
-    t.string "temperature_9"
+    t.string "max_temperature_1"
+    t.string "max_temperature_2"
+    t.string "max_temperature_3"
+    t.string "max_temperature_4"
+    t.string "min_temperature_1"
+    t.string "min_temperature_2"
+    t.string "min_temperature_3"
+    t.string "min_temperature_4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "max_min_temperature_type_1"

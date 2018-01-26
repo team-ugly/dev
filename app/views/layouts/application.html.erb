@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <%= javascript_include_tag 'application' %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="shortcut icon" href="/assets/spot/ico/favicon.png">
-  <%= javascript_include_tag 'application' %>
+
 
   <!-- Bootstrap core CSS -->
   <link href="/assets/spot/css/bootstrap.css" rel="stylesheet">
@@ -24,8 +25,47 @@
 
   <![endif]-->
 </head>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<% if notice != nil%>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="alert alert-purple alert-dismissable">
+        <span class="glyphicon glyphicon-certificate"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+          ×</button><strong>Well done!</strong><%= notice %></div>
+
+
+    </div>
+  </div>
+</div>
+  <% end %>
+  <% if alert != nil%>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="alert alert-info-alt alert-dismissable">
+          <span class="glyphicon glyphicon-certificate"></span>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×</button><strong>Well done!</strong><p class="alert"><%= alert %></p></div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
 <body>
 
 <!-- Fixed navbar -->

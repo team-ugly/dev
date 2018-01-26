@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'boards/show'
 
+  resources :places , only: [:create , :destroy ] do
+    resources :messages
+  end
+
   post 'boards/create' => 'boards#create'
 
 
