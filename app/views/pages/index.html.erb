@@ -23,6 +23,7 @@
 <!-- main -->
 <% @area_code_forecasts.each do |area_code_forecast| %>
     <% @weather_forecasts.each do |weather_forecast| %>
+        <% @weather_informations.each do |weather_information| %>
         <% require "date" %>
         <% dateString = weather_forecast.time_id_1.split(/-|T|:/)[0]+weather_forecast.time_id_1.split(/-|T|:/)[1]+weather_forecast.time_id_1.split(/-|T|:/)[2] %>
   <div class="main-info">
@@ -192,7 +193,7 @@
         icons.play();
     </script>
   </div>
-        <% end %><% end %>
+        <% end %><% end %><% end %>
 <!--//main -->
 </body>
 </html>

@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       marker.json({name: place.name})
     end
 
-    @weather_informations = WeatherInformation.all
+    @weather_informations = WeatherInformation.where(area_code: current_user.area_code)
     @areas = Area.all
 
     if current_user.area_code==3||6
