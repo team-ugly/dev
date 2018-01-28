@@ -212,11 +212,11 @@
       <!-- Row title -->
       <main class="row title">
         <ul>
-          <li>時刻</li>
-          <li>気温</li>
-          <li>降水量</li>
-          <li>風速・風向</li>>
-          <li>日照時間</li>
+          <li>時刻<br> </li>
+          <li>気温<br>(℃)</li>
+          <li>降水量<br>(mm)</li>
+          <li>風向風速<br>(m/s)</li>>
+          <li>日照時間<br>(時間)</li>
         </ul>
       </main>
 
@@ -227,8 +227,8 @@
           <li><%=weather_information.time %> : 00</li>
           <li><%=weather_information.temperature %></li>
           <li><%=weather_information.rain %></li>
-          <li><%=weather_information.wind_speed %> - <%=weather_information.wind_direction %></li>
-          <li><% if weather_information.sun==nil%>データ無し<% else %><%=weather_information.sun %>時間<% end %></li>
+          <li><%=weather_information.wind_direction %><br><%=weather_information.wind_speed %></li>
+          <li><% if weather_information.sun==nil%> -<% else %><%=weather_information.sun %><% end %></li>
         </ul>
 
       </article>

@@ -27,12 +27,12 @@
   <link rel="stylesheet" type="text/css" href="/assets/contactform/css/util.css">
   <link rel="stylesheet" type="text/css" href="/assets/contactform/css/main.css">
   <!--===============================================================================================-->
-  <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="/assets/radio/css/style.css">
 
 </head>
-<body>
+<body style="margin-top:82px">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
 
         <%= devise_error_messages! %>
@@ -42,23 +42,6 @@
 				<span class="contact100-form-title">
 					新規登録
 				</span>
-
-
-
-
-          <div class="wrap-input100 input100-select bg1">
-            <span class="label-input100">エリア選択</span>
-            <div>
-              <%= form.collection_select :area_code, Area.all, "area_code", "area_name", {prompt: "エリアを選択してください"}, {class: "js-select2"} %>
-              <div class="dropDownSelect2"></div>
-            </div>
-          </div>
-
-
-
-
-
-
           <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
             <span class="label-input100">ユーザ名</span>
             <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
@@ -73,7 +56,13 @@
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <%= form.email_field :email, :class=>"input100",:placeholder=>""%>
           </div>
-
+          <div class="wrap-input100 input100-select bg1">
+            <span class="label-input100">エリア選択</span>
+            <div>
+              <%= form.collection_select :area_code, Area.all, "area_code", "area_name", {prompt: "エリアを選択してください"}, {class: "js-select2"} %>
+              <div class="dropDownSelect2"></div>
+            </div>
+          </div>
           <div class="wrap-input100 bg1 rs1-wrap-input100">
             <span class="label-input100">パスワード</span>
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">

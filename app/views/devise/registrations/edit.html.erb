@@ -45,7 +45,13 @@
             <%= f.email_field :email,:class=>"input100", autofocus: true %>
           </div>
 
-
+          <div class="wrap-input100 input100-select bg1">
+            <span class="label-input100">エリア選択</span>
+            <div>
+              <%= f.collection_select :area_code, Area.all, "area_code", "area_name", {prompt: "エリアを選択してください"}, {class: "js-select2"} %>
+              <div class="dropDownSelect2"></div>
+            </div>
+          </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -54,22 +60,17 @@
           <div class="wrap-input100 validate-input bg1">
 
             <%= f.label :パスワード %> <i>(変更したくない場合は空白のままにしてください)</i><br />
-            <%= f.password_field :password,:class=>"input100", autocomplete: "off" %>
-
-            <% if @minimum_password_length %>
-                <br />
-                <em>※<%= @minimum_password_length %> 文字以上で入力してください</em>
-            <% end %>
+            <%= f.password_field :password,:class=>"input100", autocomplete: "off" ,:placeholder=>"6文字以上"%>
           </div>
 
           <div class="wrap-input100 validate-input bg1">
             <%= f.label :パスワード確認 %> <i>(変更後のパスワードを再度入力してください)</i><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" ,:class=>"input100"%>
           </div>
 
           <div class="wrap-input100 validate-input bg1">
             <%= f.label :現在のパスワード %> <i>（変更を確認するために現在のパスワードが必要です）</i><br />
-            <%= f.password_field :current_password, autocomplete: "off" %>
+            <%= f.password_field :current_password, autocomplete: "off" ,:class=>"input100"%>
           </div>
 
           <div class="regbutton">
