@@ -291,13 +291,7 @@ table {
   }
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
+
 
 html {
   font-size: 62.5%;
@@ -786,7 +780,10 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-
+.containerflash {
+  margin-right: auto;
+  margin-left: auto;
+}
 .container:before,
 .container:after {
   display: table;
@@ -807,9 +804,9 @@ pre code {
   clear: both;
 }
 
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
+
+.row2 {
+
 }
 
 .row:before,
@@ -882,8 +879,7 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+
 }
 
 .col-xs-1,
@@ -4400,6 +4396,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .container > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media (min-width: 768px) {
@@ -5258,8 +5256,7 @@ a.thumbnail.active {
 
 .alert {
   padding: 5px;
-  border: 2px solid transparent;
-  border-radius: 4px;
+
 }
 
 .alert h4 {
