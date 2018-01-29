@@ -56,6 +56,16 @@ body {
   overflow: hidden;
   position: relative;
 }
+.wrapper2 {
+  width: 100%;
+
+  margin: 20px auto 100px auto;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  position: relative;
+}
 
 /* lists */
 .row ul {
