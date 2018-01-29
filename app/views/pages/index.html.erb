@@ -23,10 +23,13 @@
   <!--//skycons-icons-->
 </head>
 <body>
+
 <!-- main -->
 <% @area_code_forecasts.each do |area_code_forecast| %>
     <% @weather_forecasts.each do |weather_forecast| %>
-
+        <% @areas.each do |area| %>
+            <div class="weather-message">
+              <h3 class="ppk">こんにちは<%= current_user.username %>さん　大分県<%= area_code_forecast.area_name %> - <%= area.area_name%>の天気予報とアメダスデータを表示します</h3><% end %></div>
         <% require "date" %>
         <% day = Date.today %>
         <% dateString = weather_forecast.time_id_1.split(/-|T|:/)[0]+weather_forecast.time_id_1.split(/-|T|:/)[1]+weather_forecast.time_id_1.split(/-|T|:/)[2] %>
@@ -58,9 +61,24 @@
       <% end %>
 
       <div class="weather-grids">
-        <h4>最高 <%= weather_forecast.max_min_temperature_1 %>度</h4>
+        <% if weather_forecast.max_min_temperature_type_1=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_1 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_2=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_2 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_3=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_3 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_4=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_4 %>度</h4><% end %>
         <h2><%= weather_forecast.temperature_1 %>度</h2>
-        <h4>最低 <%= weather_forecast.max_min_temperature_3 %>度</h4>
+        <% if weather_forecast.max_min_temperature_type_1=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_1 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_2=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_2 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_3=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_3 %>度</h4><% end %>
+        <% if weather_forecast.max_min_temperature_type_4=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_4 %>度</h4><% end %>
+
       </div>
       <div class="clear"> </div>
     </div>
@@ -300,11 +318,11 @@
       <!-- Row title -->
       <main class="row title">
         <ul>
-          <li>時刻<br> </li>
-          <li>気温<br>(℃)</li>
-          <li>降水量<br>(mm)</li>
-          <li>風向風速<br>(m/s)</li>>
-          <li>日照時間<br>(時間)</li>
+          <li>時刻</li>
+          <li>気温</li>
+          <li>降水量</li>
+          <li>風向風速</li>>
+          <li>日照時間</li>
         </ul>
       </main>
 
@@ -313,10 +331,10 @@
       <article class="row pga">
         <ul>
           <li><%=weather_information.time %> : 00</li>
-          <li><% if weather_information.temperature==nil%> -<% end %><%=weather_information.temperature %></li>
-          <li><% if weather_information.rain==nil%> -<% end %><%=weather_information.rain %></li>
-          <li><% if weather_information.wind_direction==nil%> -<% end %><%=weather_information.wind_direction %><br><%=weather_information.wind_speed %></li>
-          <li><% if weather_information.sun==nil%> -<% else %><%=weather_information.sun %><% end %></li>
+          <li><% if weather_information.temperature==nil%> -<% end %><%=weather_information.temperature %>℃</li>
+          <li><% if weather_information.rain==nil%> -<% end %><%=weather_information.rain %> mm</li>
+          <li><% if weather_information.wind_direction==nil%> -<% end %><%=weather_information.wind_direction %><br><%=weather_information.wind_speed %> m/s</li>
+          <li><% if weather_information.sun==nil%> -<% else %><%=weather_information.sun %><% end %>時間</li>
         </ul>
 
       </article>

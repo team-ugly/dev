@@ -41,6 +41,7 @@
 	box-sizing: border-box;
 }
 
+
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
@@ -727,3 +728,5 @@ textarea.input100 {
     padding: 15px 0px 0 0px;
   }
 }
+
+
