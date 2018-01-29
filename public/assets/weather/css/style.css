@@ -48,7 +48,7 @@ h1 {
 }
 .main-info {
     width: 35%;
-    margin: 5em auto;
+    margin: 1em auto;
     background: #32457c;
     padding: 2em;
 	border-radius: 5px;
@@ -72,6 +72,11 @@ h1 {
     font-weight: 900;
     color: #FFD700;
 	margin-top: 0.7em;
+}
+.weather-message h3.ppk {
+    font-weight: 900;
+    color: #e57971;
+    margin-top: 0.7em;
 }
 .weather-grids h2 {
     font-size: 3em;
@@ -171,7 +176,7 @@ figure.icons {
     padding: 4em 0 0;
 }
 .main-info {
-	margin: 4em auto;
+	margin: 1em auto;
 }
 h1 {
     font-size: 2.8em;
@@ -198,7 +203,7 @@ h1 {
 }
 .main-info {
     width: 82%;
-    margin: 3em auto;
+    margin: 1em auto;
 }
 .weather-grids h3 {
     font-size: 1.3em;

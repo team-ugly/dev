@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     end
 
     @weather_informations = WeatherInformation.where(area_code: current_user.area_code)
-    @areas = Area.all
+    @areas = Area.where(area_code: current_user.area_code)
 
     if current_user.area_code==3|| current_user.area_code==6
       @weather_forecasts = WeatherForecast.where(area_code_forecast: 0)

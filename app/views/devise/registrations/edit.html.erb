@@ -46,7 +46,7 @@
           </div>
 
           <div class="wrap-input100 input100-select bg1">
-            <span class="label-input100">エリア選択</span>
+            <%= f.label :エリア選択 %><br />
             <div>
               <%= f.collection_select :area_code, Area.all, "area_code", "area_name", {prompt: "エリアを選択してください"}, {class: "js-select2"} %>
               <div class="dropDownSelect2"></div>

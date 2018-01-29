@@ -28,14 +28,27 @@
   <link rel="stylesheet" type="text/css" href="/assets/contactform/css/main.css">
   <!--===============================================================================================-->
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="/assets/radio/css/style.css">
+
 
 </head>
+<% if devise_error_messages! != ""%>
+    <div class="containerflash">
+      <div class="row2">
+
+        <div class="col-md-12">
+          <div class="alert alert-top alert-dismissable" style="border-color:#f5f5f5;background:#f14a4a;color:#fff;">
+            <span class="glyphicon glyphicon-certificate"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+              ×</button><%= devise_error_messages! %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
 <body style="margin-top:82px">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
 
-        <%= devise_error_messages! %>
+
     <div class="container-contact100">
       <div class="wrap-contact100">
         <form class="contact100-form validate-form">
@@ -51,7 +64,7 @@
 
 
 
-          <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <div class="wrap-input100 validate-input bg1">
             <span class="label-input100">メールアドレス</span>
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <%= form.email_field :email, :class=>"input100",:placeholder=>""%>
@@ -63,7 +76,7 @@
               <div class="dropDownSelect2"></div>
             </div>
           </div>
-          <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <div class="wrap-input100 validate-input bg1">
             <span class="label-input100">パスワード</span>
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <% if @minimum_password_length %>
@@ -72,7 +85,7 @@
             <%= form.password_field :password,:class=>"input100",:placeholder=>"6文字以上"%>
           </div>
 
-          <div class="wrap-input100 bg1 rs1-wrap-input100">
+          <div class="wrap-input100 validate-input bg1">
             <span class="label-input100">パスワード（もう一度入力してください）</span>
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <%= form.password_field :password_confirmation, :class=>"input100"%>
@@ -136,7 +149,7 @@
           <div class ="regbutton">
             <div class="container-contact100-form-btn">
               <button class="contact100-form-btn">
-                <%= form.submit :class => 'contact100-form-btn' %>
+                <%= form.submit '登録',:class => 'contact100-form-btn' %>
                 <span>
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
