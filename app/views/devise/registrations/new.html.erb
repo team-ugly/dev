@@ -172,21 +172,21 @@
 <!--===============================================================================================-->
 <script src="/assets/contactform/vendor/select2/select2.min.js"></script>
 <script>
-    $(".js-select2").each(function(){
-        $(this).select2({
+    jQuery(".js-select2").each(function(){
+        jQuery(this).select2({
             minimumResultsForSearch: 20,
-            dropdownParent: $(this).next('.dropDownSelect2')
+            dropdownParent: jQuery(this).next('.dropDownSelect2')
         });
 
 
-        $(".js-select2").each(function(){
-            $(this).on('select2:close', function (e){
+        jQuery(".js-select2").each(function(){
+            jQuery(this).on('select2:close', function (e){
                 if($(this).val() == "Please chooses") {
-                    $('.js-show-service').slideUp();
+                    jQuery('.js-show-service').slideUp();
                 }
                 else {
-                    $('.js-show-service').slideUp();
-                    $('.js-show-service').slideDown();
+                    jQuery('.js-show-service').slideUp();
+                    jQuery('.js-show-service').slideDown();
                 }
             });
         });
@@ -218,8 +218,8 @@
 
     filterBar.noUiSlider.on('update', function( values, handle ) {
         skipValues[handle].innerHTML = Math.round(values[handle]);
-        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+        jQuery('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+        jQuery('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
     });
 </script>
 <!--===============================================================================================-->
