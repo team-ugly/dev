@@ -73,6 +73,7 @@
         <li><a href="/users/sign_up">新規登録</a></li>
         <% end %>
         <% if user_signed_in? %>
+            <li><a href="/places">農地マップ</a></li>
         <li><a href="/users/edit">プロフィール編集</a></li>
         <li><a href="/users/sign_out">ログアウト</a></li>
         <% end %>
@@ -85,24 +86,6 @@
 
 
 <%= yield %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- FOOTER -->
