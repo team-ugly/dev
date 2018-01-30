@@ -41,42 +41,42 @@
       </div>
       <% if weather_forecast.weather_detail_1 =="晴れ"%>
       <div class="weather-grids weather-mdl">
-        <canvas class="clear-day" width="70" height="70"></canvas>
+        <canvas class="clear-day" width="100" height="100"></canvas>
       </div>
           <% end %>
       <% if weather_forecast.weather_detail_1 =="くもり"%>
           <div class="weather-grids weather-mdl">
-            <canvas class="cloudy" width="70" height="70"></canvas>
+            <canvas class="cloudy" width="100" height="100"></canvas>
           </div>
       <% end %>
       <% if weather_forecast.weather_detail_1 =="雨"%>
           <div class="weather-grids weather-mdl">
-            <canvas class="rain" width="70" height="70"></canvas>
+            <canvas class="rain" width="100" height="100"></canvas>
           </div>
       <% end %>
       <% if weather_forecast.weather_detail_1 =="雪"%>
           <div class="weather-grids weather-mdl">
-            <canvas class="snow" width="70" height="70"></canvas>
+            <canvas class="snow" width="100" height="100"></canvas>
           </div>
       <% end %>
 
       <div class="weather-grids">
         <% if weather_forecast.max_min_temperature_type_1=="日中の最高気温" %>
-            <h4>最高 <%= weather_forecast.max_min_temperature_1 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_2=="日中の最高気温" %>
-            <h4>最高 <%= weather_forecast.max_min_temperature_2 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_3=="日中の最高気温" %>
-            <h4>最高 <%= weather_forecast.max_min_temperature_3 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_4=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_1 %>度</h4>
+        <% elsif weather_forecast.max_min_temperature_type_2=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_2 %>度</h4>
+        <% elsif weather_forecast.max_min_temperature_type_3=="日中の最高気温" %>
+            <h4>最高 <%= weather_forecast.max_min_temperature_3 %>度</h4>
+        <% elsif weather_forecast.max_min_temperature_type_4=="日中の最高気温" %>
             <h4>最高 <%= weather_forecast.max_min_temperature_4 %>度</h4><% end %>
         <h2><%= weather_forecast.temperature_1 %>度</h2>
-        <% if weather_forecast.max_min_temperature_type_1=="朝の最低気温" %>
-            <h4>最低 <%= weather_forecast.max_min_temperature_1 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_2=="朝の最低気温" %>
-            <h4>最低 <%= weather_forecast.max_min_temperature_2 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_3=="朝の最低気温" %>
-            <h4>最低 <%= weather_forecast.max_min_temperature_3 %>度</h4><% end %>
-        <% if weather_forecast.max_min_temperature_type_4=="朝の最低気温" %>
+        <% if weather_forecast.max_min_temperature_type_1=="朝の最低気温"  %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_1 %>度</h4>
+        <%elsif weather_forecast.max_min_temperature_type_2=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_2 %>度</h4><
+        <% elsif weather_forecast.max_min_temperature_type_3=="朝の最低気温" %>
+            <h4>最低 <%= weather_forecast.max_min_temperature_3 %>度</h4>
+        <% elsif weather_forecast.max_min_temperature_type_4=="朝の最低気温" %>
             <h4>最低 <%= weather_forecast.max_min_temperature_4 %>度</h4><% end %>
 
       </div>
@@ -334,7 +334,7 @@
           <li><% if weather_information.temperature==nil%> -<% end %><%=weather_information.temperature %>℃</li>
           <li><% if weather_information.rain==nil%> -<% end %><%=weather_information.rain %> mm</li>
           <li><% if weather_information.wind_direction==nil%> -<% end %><%=weather_information.wind_direction %><br><%=weather_information.wind_speed %> m/s</li>
-          <li><% if weather_information.sun==nil%> -<% else %><%=weather_information.sun %><% end %>時間</li>
+          <li><% if weather_information.sun==nil%> -<% else %><%=weather_information.sun %>時間<% end %></li>
         </ul>
 
       </article>
