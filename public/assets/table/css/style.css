@@ -7,6 +7,12 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.alert.alert-top.alert-dismissable{
+  background: #32457c;
+}
+p.alert{
+  color: #f4f4f4;
+}
 /* links */
 .nfl a, .mlb a, .nhl a, .pga a {
   text-decoration: none;

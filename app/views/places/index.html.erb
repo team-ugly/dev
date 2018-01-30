@@ -59,14 +59,14 @@
       <!-- Row 8 -->
       <article class="row pga">
         <ul>
-          <li><%=place.name %></li>
+          <li><%=link_to place.name,place %></li>
 
           <li><%=place.address %></li>
           <li><%=place.latitude %></li>
           <li><%=place.longitude %></li>
           <li><%=place.description[0,3] %>...</li>
           <ul class="more-content">
-            <li><%=place.description %><%= link_to 'Show', place %><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><% if current_user.id == place.byid %><%= link_to 'Edit', edit_place_path(place) %><<% end %></li>
+            <li><%=place.description %></li>
           </ul>
 
         </ul>

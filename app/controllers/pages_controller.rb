@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       @weather_forecasts = WeatherForecast.where(area_code_forecast: 2)
       @area_code_forecasts = AreaCodeForecast.where(id: 3)
     end
-    if current_user.area_code==9|| current_user.area_code==10|| current_user.area_code==11|| current_user.area_code==12
+    if current_user.area_code==9|| current_user.area_code==10|| current_user.area_code==11|| current_user.area_code==12|| current_user.area_code==8
       @weather_forecasts = WeatherForecast.where(area_code_forecast: 3)
       @area_code_forecasts = AreaCodeForecast.where(id: 4)
     end

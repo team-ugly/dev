@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
   def show
     @message = Message.new
     @messages = Message.where(place_id: params[:id])
+    @place = Place.find(params[:id])
 
   end
 
