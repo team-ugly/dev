@@ -37,7 +37,7 @@
 
         <div class="col-md-12">
           <div class="alert alert-top alert-dismissable" style="border-color:#f5f5f5;background:#f14a4a;color:#fff;">
-            <span class="glyphicon glyphicon-certificate"></span>
+
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
               ×</button><%= devise_error_messages! %>
           </div>
@@ -55,8 +55,8 @@
 				<span class="contact100-form-title">
 					新規登録
 				</span>
-          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-            <span class="label-input100">ユーザ名</span>
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name" >
+            <%= form.label :ユーザ名 %><br />
             <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
             <%= form.text_field :username, :class=>"input100",:placeholder=>"" %>
 
@@ -65,28 +65,28 @@
 
 
           <div class="wrap-input100 validate-input bg1">
-            <span class="label-input100">メールアドレス</span>
+            <%= form.label :eメール %><br />
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <%= form.email_field :email, :class=>"input100",:placeholder=>""%>
           </div>
           <div class="wrap-input100 input100-select bg1">
-            <span class="label-input100">エリア選択</span>
+            <%= form.label :エリア選択 %><br />
             <div>
               <%= form.collection_select :area_code, Area.all, "area_code", "area_name", {prompt: "エリアを選択してください"}, {class: "js-select2"} %>
               <div class="dropDownSelect2"></div>
             </div>
           </div>
           <div class="wrap-input100 validate-input bg1">
-            <span class="label-input100">パスワード</span>
+            <%= form.label :パスワード %><br />
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
+
             <% end %><br />
             <%= form.password_field :password,:class=>"input100",:placeholder=>"6文字以上"%>
           </div>
 
           <div class="wrap-input100 validate-input bg1">
-            <span class="label-input100">パスワード（もう一度入力してください）</span>
+            <%= form.label :パスワード確認 %><i>(もう一度入力してください)</i><br />
             <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
             <%= form.password_field :password_confirmation, :class=>"input100"%>
           </div>

@@ -32,14 +32,19 @@
 
 <%= form_with(model: place, local: true) do |form| %>
     <% if place.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+        <div class="containerflash">
+          <div class="row2">
 
-          <ul>
-            <% place.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+            <div class="col-md-12">
+              <div class="alert alert-top alert-dismissable" style="border-color:#f5f5f5;background:#f14a4a;color:#fff;">
+
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                  ×</button><% place.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
     <% end %>
 <div class="container-contact100">
@@ -50,25 +55,25 @@
 				</span>
 
       <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-        <span class="label-input100">名前 *</span>
+        <%= form.label :名前 %><br />
         <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
         <%= form.text_field :name, id: :place_name,:class=>"input100",:placeholder=>"農場名を入力してください" %>
       </div>
 
       <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-        <span class="label-input100">住所 *</span>
+        <%= form.label :住所 %><br />
         <!input class="input100" type="text" name="name" placeholder="Enter Your Name">
         <%= form.text_field :address, id: :place_address,:class=>"input100",:placeholder=>"住所を入力してください" %>
       </div>
 
       <div class="wrap-input100 bg1 rs1-wrap-input100">
-        <span class="label-input100">緯度</span>
+        <%= form.label :緯度 %><br />
         <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
         <%= form.text_field :latitude, id: :place_latitude,:readonly => true, :class=>"input100",:placeholder=>"自動で入力します"%>
       </div>
 
       <div class="wrap-input100 bg1 rs1-wrap-input100">
-      <span class="label-input100">経度</span>
+        <%= form.label :経度 %><br />
       <!input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
       <%= form.text_field :longitude, id: :place_longitude,:readonly => true, :class=>"input100",:placeholder=>"自動で入力します"%>
     </div>
@@ -134,19 +139,19 @@
       </div-->
 
       <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
-        <span class="label-input100">農場プロフィール(登録後も変更できます)</span>
+        <%= form.label :農場プロフィール %><br />
         <!textarea class="input100" name="message" placeholder="Your message here..."><!/textarea>
-        <%= form.text_area :description, id: :place_description,:class=>"input100" %>
+        <%= form.text_area :description, id: :place_description,:class=>"input100" ,:placeholder=>"登録後も変更できます"%>
       </div>
-      <div class ="regbutton">
-      <div class="container-contact100-form-btn">
-        <button class="contact100-form-btn">
-          <%= form.submit :class => 'contact100-form-btn' %>
-						<span>
+      <div class="regbutton">
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn">
+            <input type="submit" name="commit" value="登録" class="contact100-form-btn" data-disable-with="Create Place">
+            <span>
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
-        </button>
-      </div>
+          </button>
+        </div>
       </div>
     </form>
   </div>
