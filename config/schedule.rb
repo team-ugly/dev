@@ -26,4 +26,5 @@ set :environment, :production
 every 1.hours, at:15 do
   rake "weather_information_fetch:fetch"
   rake "weather_forecast_fetch:fetch"
+  rake "message_delete:delete"
 end

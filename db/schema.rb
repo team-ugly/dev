@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 20180124052703) do
     t.integer "flag"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "byname"
-    t.string "com"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "farms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
