@@ -31,6 +31,7 @@ class PlacesController < ApplicationController
 
   # GET /places/1/edit
   def edit
+    @place = Place.new
   end
 
   # POST /places
