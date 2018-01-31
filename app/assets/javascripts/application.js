@@ -1,7 +1,6 @@
 //= require jquery3
 //= require jquery
 //= require jquery_ujs
-//= require data-confirm-modal
 //= require rails-ujs
 //= require underscore
 //= require gmaps/google
