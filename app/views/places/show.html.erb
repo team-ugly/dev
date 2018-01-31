@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    <%= @place.name %>
+    <%= @place.name %> - UGLY NOTE
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -88,7 +88,7 @@
         <% @messages.each do |message| %>
             <div class="media">
               <p class="pull-right"><small><%= message.created_at %></small></p>
-              
+
               <div class="media-body">
 
                 <h4 class="media-heading user_name"><%= message.user_name %></h4>
