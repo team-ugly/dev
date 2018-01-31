@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css"/>
   <link href='http://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet' type='text/css'>
   <link href="/assets/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/table/css/style2.css" rel="stylesheet" type="text/css"/>
@@ -88,9 +88,7 @@
         <% @messages.each do |message| %>
             <div class="media">
               <p class="pull-right"><small><%= message.created_at %></small></p>
-              <a class="media-left" href="#">
-                <img src="http://lorempixel.com/40/40/people/1/">
-              </a>
+              
               <div class="media-body">
 
                 <h4 class="media-heading user_name"><%= message.user_name %></h4>
