@@ -64,4 +64,3 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'whenever', require: false
 
 
-gem 'unicorn'
