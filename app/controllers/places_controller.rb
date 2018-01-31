@@ -12,6 +12,11 @@ class PlacesController < ApplicationController
       marker.lng place.longitude
       marker.infowindow render_to_string(partial: "places/infowindow", locals: { place: place })
       marker.json({name: place.name})
+      marker.picture({
+                         :url => "/assets/corn.png",
+                         :width => 36,
+                         :height => 36
+                     })
     end
 
   end
@@ -23,7 +28,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
 
   end
-
+  
   # GET /places/new
   def new
     @place = Place.new
