@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="/assets/spot/ico/favicon.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
 
   <!-- Bootstrap core CSS -->
   <link href="/assets/spot/css/bootstrap.css" rel="stylesheet">
@@ -65,15 +65,15 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="/">ホーム</a></li>
+        <li class="<%= 'active' if current_page?("/") %>"><a href="/">ホーム</a></li>
         <% if user_signed_in? %><% else %>
-        <li><a href="/users/sign_in">ログイン</a></li>
-        <li><a href="/users/sign_up">新規登録</a></li>
+          <li class="<%= 'active' if current_page?("/users/sign_in") %>"><a href="/users/sign_in">ログイン</a></li>
+          <li class="<%= 'active' if current_page?("/users/sign_up") %>"><a href="/users/sign_up">新規登録</a></li>
         <% end %>
         <% if user_signed_in? %>
-            <li><a href="/places">農地マップ</a></li>
-        <li><a href="/users/edit">プロフィール編集</a></li>
-        <li><a href="/users/sign_out">ログアウト</a></li>
+          <li class="<%= 'active' if current_page?("/places")||current_page?("/places/new") %>"><a href="/places">農地マップ</a></li>
+          <li class="<%= 'active' if current_page?("/users/edit") %>"><a href="/users/edit">プロフィール編集</a></li>
+          <li><a href="/users/sign_out">ログアウト</a></li>
         <% end %>
         <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>
       </ul>
