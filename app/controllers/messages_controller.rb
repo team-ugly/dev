@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to place_path(@place)
     else
-      render "places/show"
+      redirect_to place_path(@place)
     end
 
   end
