@@ -1,4 +1,4 @@
 
-<h2><%= link_to place.name,edit_place_path(place) %></h2>
+<h2><%= link_to place.name,place %></h2>
 <%= place.description %>
 <%= link_to "マップを開く","https://maps.google.co.jp/maps?q=loc:#{place.latitude},#{place.longitude}&iwloc=J",target: "_blank" %>
