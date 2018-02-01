@@ -78,7 +78,7 @@
 
           <div class="wrap-input100 validate-input bg1">
 
-            <%= f.label :パスワード %> <i>(変更したくない場合は空白のままにしてください)</i><br />
+            <%= f.label :パスワード %> <i>(変更しない場合は空白のままにしてください)</i><br />
             <%= f.password_field :password,:class=>"input100", autocomplete: "off" ,:placeholder=>"6文字以上"%>
           </div>
 
@@ -105,7 +105,7 @@
 
         </form>
         <hr class="divider-w mt-10 mb-20">
-        <p><%= button_to "このアカウントを削除する", registration_path(resource_name),:class=>"btn btn-danger btn-circle", data: { confirm: "本当に削除しますか？" }, method: :delete %></p>
+        <p><%= button_to "このアカウントを削除する", registration_path(resource_name),:class=>"btn btn-danger btn-circle", data: { confirm: "本当にアカウントを削除しますか？" }, method: :delete %></p>
       </div>
     </div>
 
