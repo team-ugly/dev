@@ -354,3 +354,8 @@ ul.more-content li {
     color: rgba(255, 255, 255, 0.9);
   }
 }
+.weather-message h3.ppk {
+  font-weight: 900;
+  color: #e57971;
+  margin-top: 0.7em;
+}
