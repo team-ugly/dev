@@ -28,7 +28,7 @@
         <h3><%= @place.address %></h3>
       </div>
       <div class="pricing-table-features">
-        <p><strong>登録者</strong> <% @user=User.find(@place.byid) %><%=@user.username %></p>
+        <p><strong>登録者</strong> <% @user=User.find_by(id:@place.byid) %><% if @user!=nil %><%=@user.username %><% end %></p>
         <p><strong>経度</strong> <%= @place.latitude %></p>
         <p><strong>緯度</strong> <%= @place.longitude %></p>
         <p><strong>説明</strong><br><%= @place.description %></p>
