@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
-
+  protect_from_forgery except: :destroy
 
   # GET /places
   # GET /places.json

@@ -34,7 +34,11 @@
       </div><% if current_user.id == @place.byid %>
       <div class="pricing-table-signup-tiny">
         <p><%= link_to '編集', edit_place_path(@place) %></p>
-      </div><% end %>
+      </div>
+          <div class="pricing-table-signup-medium">
+      <p><%= link_to '削除', @place, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div><% end %>
+
 
       <div class="comment-form">
         <%= form_for([@place , @message]) do |f| %>
