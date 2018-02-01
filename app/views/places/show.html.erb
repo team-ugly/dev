@@ -31,7 +31,7 @@
         <p><strong>経度</strong> <%= @place.latitude %></p>
         <p><strong>緯度</strong> <%= @place.longitude %></p>
         <p><strong>説明</strong><br><%= @place.description %></p>
-      </div><% if current_user.id == @place.byid %>
+      </div><% if current_user.id == @place.byid || current_user.email == 'admin@admin.com'%>
       <div class="pricing-table-signup-tiny">
         <p><%= link_to '編集', edit_place_path(@place) %></p>
       </div>
