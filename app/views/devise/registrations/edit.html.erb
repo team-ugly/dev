@@ -54,6 +54,11 @@
 					プロフィール編集
 				</span>
 
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name" >
+            <%= f.label :ユーザ名 %><br />
+            <%= f.text_field :username, :class=>"input100",:placeholder=>"" %>
+          </div>
+
           <div class="wrap-input100 validate-input bg1">
             <%= f.label :eメール %><br />
             <%= f.email_field :email,:class=>"input100", autofocus: true %>

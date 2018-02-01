@@ -92,7 +92,7 @@
       <div class="comments-list">
         <% @messages.each do |message| %>
             <div class="media">
-              <p class="pull-right"><small><%= message.created_at.in_time_zone('Tokyo').to_s(:db) %></small></p>
+              <p class="pull-right"><small><%= message.created_at.in_time_zone('Tokyo').to_s(:datetime) %></small></p>
 
               <div class="media-body">
 
