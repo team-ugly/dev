@@ -29,7 +29,7 @@
     <% @weather_forecasts.each do |weather_forecast| %>
         <% @areas.each do |area| %>
             <div class="weather-message">
-              <h3 class="ppk">こんにちは<%= current_user.username %>さん　大分県<%= area_code_forecast.area_name %> - <%= area.area_name%>の天気予報とアメダスデータを表示します</h3><% end %></div>
+              <h3 class="ppk">こんにちは<%= current_user.username %>さん　大分県<%= area_code_forecast.area_name %>の天気予報と<%= area.area_name%>のアメダスデータを表示します</h3><% end %></div>
         <% require "date" %>
         <% day = Date.today %>
         <% dateString = weather_forecast.time_id_1.split(/-|T|:/)[0]+weather_forecast.time_id_1.split(/-|T|:/)[1]+weather_forecast.time_id_1.split(/-|T|:/)[2] %>
