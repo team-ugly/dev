@@ -31,12 +31,13 @@
             <div class="weather-message">
               <h3 class="ppk">こんにちは<%= current_user.username %>さん　大分県<%= area_code_forecast.area_name %>の天気予報と<%= area.area_name%>のアメダスデータを表示します</h3><% end %></div>
         <% require "date" %>
-        <% day = Date.today %>
+        <% day = Date.today.in_time_zone('Tokyo') %>
+        <% date = Date.today %>
         <% dateString = weather_forecast.time_id_1.split(/-|T|:/)[0]+weather_forecast.time_id_1.split(/-|T|:/)[1]+weather_forecast.time_id_1.split(/-|T|:/)[2] %>
   <div class="main-info">
     <div class="weather-top">
       <div class="weather-grids">
-        <h3 class="fri"><%= day.month %>月<%= day.day %>日 <br><%= %w(月 火 水 木 金 土 日)[day.cwday - 1] %>曜日</h3>
+        <h3 class="fri"><%= day.month %>月<%= day.day %>日 <br><%= %w(月 火 水 木 金 土 日)[date.cwday - 1] %>曜日</h3>
         <h3>大分 <%= area_code_forecast.area_name %></h3>
       </div>
       <% if weather_forecast.weather_detail_1 =="晴れ"%>
